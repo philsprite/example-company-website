@@ -1,0 +1,1110 @@
+/* ===================================== */
+/* =========== Global Resets =========== */
+/* ===================================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NeutralSansMedium", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f1f1f1; /* Hintergrundfarbe für die gesamte Seite */
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Universeller Container für Sections und andere Inhalte */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* ===================================== */
+/* ============== Navbar =============== */
+/* ===================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(119, 119, 119, 0.0); /* Transparent, wenn oben */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* Navbar im gescrollten Zustand */
+.navbar.scrolled {
+    background-color: rgba(35, 35, 35, 0.8); /* Leicht transparent beim Scrollen */
+    padding: 20px 20px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-left: -20px; /* Abstand links vom Rand (für Desktop) */
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 0 2px lightgrey) drop-shadow(0 0 2px white);
+}
+
+/* Standard: Navigation ausgeblendet (wichtig für Mobile) */
+.navbar .nav-links {
+    display: none;
+    gap: 30px;
+    margin-right: 20px;
+}
+
+/* Schriftstil für die Links in der Navbar */
+.navbar .nav-links a {
+    font-family: 'Gyrochrome-VF', Arial, sans-serif; /* Schriftart für die Links */
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Sanfter Farbwechsel */
+    text-transform: uppercase; /* Buchstaben großschreiben */
+    letter-spacing: 1px; /* Erhöht den Abstand zwischen Buchstaben */
+    font-weight: bold;
+}
+
+/* Hover-Effekt für Navbar-Links */
+.navbar .nav-links a:hover {
+    color: #d3d3d3;
+}
+
+/* Desktop: Navigation dauerhaft sichtbar, Burger-Menü versteckt */
+@media (min-width: 769px) {
+    .navbar .nav-links {
+        display: flex;
+    }
+    .burger-menu {
+        display: none;
+        margin-right: 35px;
+        font-size: 2.5rem;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}
+
+/* ===================================== */
+/* ============ Video-Container ======== */
+/* ===================================== */
+
+.video-container {
+    /* Container-Einstellungen */
+    position: relative;   /* Ermöglicht absolutes Positionieren des Videos */
+    width: 100%;
+    height: 700px;        /* Standard-Höhe auf Desktop */
+    overflow: hidden;
+    background-color: black; /* Schwarz als Fallback, verhindert weiße Ränder */
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Damit immer genug „Material“ da ist, um den Container auszufüllen */
+    min-width: 100%;
+    min-height: 100%;
+
+    object-fit: cover;  /* Füllt den Container aus, ohne weiße Balken */
+    background-color: black; /* Falls mal ein Pixel Rand übrig bleibt */
+}
+
+
+
+
+/* ===================================== */
+/* =========== Über uns Section ======== */
+/* ===================================== */
+
+.about-section {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-section h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: #ff6600;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+.intro-text-1 {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    word-wrap: break-word; /* Längere Wörter werden umgebrochen */
+}
+
+.slogan {
+    font-size: 1.1rem; /* Falls du eine Schriftgröße definierst */
+    color: black;       /* Textfarbe */
+    margin-bottom: 40px; /* Fügt den Abstand unter der Überschrift hinzu */
+}
+
+
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-content .about-image {
+    flex: 1;
+    max-width: 800px;
+}
+
+.about-content .about-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-content .about-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+}
+
+.about-content .about-text p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about-content .about-text h3 {
+    font-size: 1.25rem;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+/* Zweite Über uns Section (grauer Hintergrund) */
+.black-section {
+    background-color: #505050;
+    color: white;
+    padding: 50px 20px;
+}
+
+.black-section .about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.black-section .about-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+    color: white;
+}
+
+.black-section .about-text h3 {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.black-section .about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.black-section .about-image img {
+    width: 100%;
+    max-width: 800px;
+    height: 800px;
+    border-radius: 10px;
+}
+
+.about-image img,
+.black-section .about-image img {
+    width: 100%; /* Bild passt sich der Breite des Containers an */
+    height: auto; /* Verhältnis bleibt erhalten */
+    object-fit: cover; /* Verhindert Verzerrung und füllt den Container */
+    border-radius: 10px; /* Optional: Abgerundete Ecken */
+}
+
+
+/* ===================================== */
+/* ============ Footer Section ========= */
+/* ===================================== */
+
+.footer-section {
+    background-color: #ffffff;
+    color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    position: relative;
+    top: 65px;
+}
+
+.footer-left img {
+    width: 180px;
+    height: auto;
+}
+
+.footer-left h5 {
+    margin-top: -30px;
+    font-size: 1rem;
+    color: #000000;
+}
+
+
+.footer-middle {
+    text-align: left;
+}
+
+.footer-middle h3,
+.footer-left h3{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1rem;
+    color: #000000;
+}
+
+.footer-middle h3::after,
+.footer-left h3::after {
+    content: "";
+    display: block;
+    width: 50px; /* Länge des Unterstrichs */
+    height: 5px; /* Dicke des Unterstrichs */
+    background-color: #ff6600; /* Orange */
+    margin: 5px auto 0 auto; /* Zentriert den Unterstrich */
+}
+
+.footer-middle p {
+    text-align: center; /* Text zentrieren */
+    margin: 0 auto; /* Zentriert den gesamten Block */
+    font-size: 0.9rem; /* Schriftgröße anpassen */
+    line-height: 1.6; /* Zeilenabstand */
+}
+
+
+.footer-title {
+    position: relative;
+    font-size: 1.25rem; /* Schriftgröße */
+    color: black; /* Textfarbe */
+    text-align: center; /* Text zentrieren */
+    margin-bottom: 20px; /* Abstand zum nächsten Element */
+}
+
+
+.footer-logo {
+    display: block;
+    margin: 20px auto 10px auto; /* Oben 20px Abstand, unten 10px */
+    max-width: 220px; /* Optional: Größe des Logos anpassen */
+    height: auto;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        display: flex;          /* Zusammen mit deinem Desktop-CSS */
+        justify-content: center;/* Zentriert nebeneinander */
+        align-items: flex-end;  /* Unten bündig */
+        gap: 20px;
+        flex-wrap: wrap;        /* Falls zu wenig Platz da ist */
+    }
+
+    /* Überschreibt das top:65px aus dem Desktop-CSS */
+    .footer-left {
+        position: static;
+        text-align: center;
+    }
+
+    /* Logos verkleinern */
+    .footer-left img,
+    .footer-middle .footer-logo {
+        max-width: 100px;
+        height: auto;
+    }
+
+    /* Schriften verkleinern */
+    .footer-left h3,
+    .footer-middle h3 {
+        font-size: 0.7rem;
+    }
+
+    .footer-middle p {
+        font-size: 0.6rem;
+    }
+}
+
+
+
+
+
+
+/* Copyright Footer */
+.footer {
+    background-color: #232323;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+}
+
+.footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    text-align: right;
+}
+
+/* Mobile-Layout für den Copyright-Footer */
+@media (max-width: 768px) {
+    .footer .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-copyright {
+        margin-bottom: 10px;
+    }
+
+    .footer-links {
+        margin: 0;
+    }
+}
+
+/* ===================================== */
+/* =========== Services Section ======== */
+/* ===================================== */
+
+/* Services Intro */
+.services-intro {
+    text-align: center;
+    padding: 15px 20px;
+    background-color: #f1f1f1;
+}
+
+.services-intro h2 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.services-intro h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: #ff6600;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-intro p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services List Section */
+.services-list {
+    padding: 50px 20px;
+    background-color: #f1f1f1;
+    color: white;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-box {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ff6600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+.service-icon img {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.service-box h3 {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Leistungen Info Section (Hintergrund schwarz, Text weiß) */
+.services-info {
+    background-color: #505050;
+    color: white;
+    padding: 50px 20px;
+}
+
+.services-info .about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-info .about-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+    color: white;
+}
+
+.services-info .about-text h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    position: relative;
+    display: inline-block;
+}
+
+.services-info .about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.services-info .about-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+.services-info .about-text ul {
+    list-style-type: disc; /* Standard Bulletpoints */
+    margin-left: 20px; /* Einzug der Liste */
+    margin-bottom: 20px; /* Abstand unter der Liste */
+}
+
+.services-info .about-text ul li {
+    font-size: 1rem;
+    margin-bottom: 10px; /* Abstand zwischen Punkten */
+    color: white; /* Textfarbe */
+}
+
+.services-info .about-text ul li::marker {
+    color: #ff6600; /* Ändere die Farbe der Bulletpoints */
+    font-size: 1.2rem; /* Optional: Größe der Bulletpoints anpassen */
+}
+
+
+/* ===================================== */
+/* ========= Kontakt Section =========== */
+/* ===================================== */
+
+.contact-intro {
+    background-color: #f1f1f1;
+    color: black;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.contact-intro h2 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.contact-intro h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: #ff6600;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Kontaktformular + Karte */
+.contact-section {
+    display: flex;
+    gap: 50px;
+    padding: 50px 20px;
+    background-color: #505050;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+
+.contact-form label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.contact-form button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: rgba(255, 102, 0, 0.8);
+    color: #ffffff;
+    border-color: #ff6600;
+    transform: scale(1.05);
+}
+
+/* Google Maps */
+.contact-map {
+    flex: 1.2;
+    min-width: 450px; /* Achtung: kann auf sehr kleinen Geräten zu Scrollen führen */
+    height: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* ===================================== */
+/* =========== Impressum etc. ========== */
+/* ===================================== */
+
+.impressum-section {
+    padding: 70px 20px; /* Große Abstände für Desktop */
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.impressum-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.impressum-section h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: #ff6600;
+    margin: 10px auto;
+}
+
+.impressum-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.impressum-section a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.impressum-section a:hover {
+    text-decoration: underline;
+}
+
+.impressum-section .impressum-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Datenschutzerklärung Section */
+.datenschutz-section {
+    background-color: #f1f1f1; /* Weiß-grauer Hintergrund */
+    padding: 50px 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.datenschutz-section h4 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+    position: relative;
+}
+
+.datenschutz-section h4::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: #ff6600; /* Akzentfarbe */
+    margin: 10px auto;
+}
+
+.datenschutz-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.datenschutz-section ul {
+    padding-left: 20px;
+}
+
+.datenschutz-section ul li {
+    margin-bottom: 10px;
+}
+
+
+
+/* ===================================== */
+/* ========== Animationen etc. ========= */
+/* ===================================== */
+
+@keyframes fadeInDownBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fadeInDownBounce {
+    animation: fadeInDownBounce 1s ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideInLeftBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideInRightBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.slideInLeft {
+    animation: slideInLeftBounce 0.5s ease-out forwards;
+}
+.slideInRight {
+    animation: slideInRightBounce 0.5s ease-out forwards;
+}
+.hidden {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.page-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+.page-hidden {
+    opacity: 0;
+}
+
+/* ===================================== */
+/* ========== Mobile Styles etc. ======= */
+/* ===================================== */
+@media (max-width: 768px) {
+
+    /* 1) Entfernt das negative Margin fürs Logo auf mobilen Screens */
+    .navbar .logo img {
+        margin-left: 0;
+    }
+
+    /* 2) Burger-Menu wird angezeigt, Navigation standardmäßig versteckt */
+    .burger-menu {
+        display: block;
+        margin-right: 35px;
+        font-size: 2.5rem;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 20px;   /* Begrenze nach links */
+        right: 20px;  /* Begrenze nach rechts */
+        background-color: #232323;
+        padding: 1rem;
+        border-radius: 5px;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    /* Eingeblendet, wenn per JS "show" hinzugefügt wird */
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* Video an Bildschirmbreite anpassen */
+    @media (max-width: 768px) {
+        .video-container {
+            height: auto;
+        }
+        .video-container video {
+            position: static;
+            transform: none;
+            width: 100%;
+            height: auto;
+            object-fit: cover;  /* statt „contain“-ähnlich */
+            display: block;     /* verhindert eventuell weiteres Inline-Spacing */
+        }
+    }
+
+
+
+
+    /* Über uns / Black Section: einspaltig anordnen */
+    .about-content,
+    .black-section .about-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .about-content .about-text,
+    .black-section .about-text,
+    .about-content .about-image,
+    .black-section .about-image {
+        max-width: 100%;
+    }
+
+    /* Services: nur 1 Spalte */
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Kontakt-Bereich anpassen */
+    .contact-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .contact-form {
+        min-width: auto; /* oder 280px, wenn überhaupt */
+    }
+
+    /* 3) min-width der Karte verringern */
+    .contact-map {
+        min-width: auto; /* oder 0, wenn du es noch kompakter willst */
+    }
+
+    .datenschutz-section {
+        margin-top: 50px;
+        padding: 30px 15px;
+    }
+
+    .datenschutz-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .datenschutz-section p {
+        font-size: 0.9rem;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    /* Beispiel: In ALLEN Sections auf der index.html
+       20px zusätzliches Padding rechts */
+    .index-page .about-section,
+    .index-page .black-section,
+    .index-page .services-intro,
+    .index-page .services-list,
+    .index-page .services-info,
+    .index-page .contact-intro,
+    .index-page .contact-section,
+    .index-page .footer-section,
+    .index-page .footer,
+    .contact-page .footer-section,
+    .services-page .footer-section,
+    .impressum-page .footer-section,
+    .datenschutz-page .footer-section,
+    .datenschutz-page .datenschutz-section,
+    .impressum-page .impressum-section{
+        padding-right: 60px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .about-image img,
+    .black-section .about-image img {
+        width: 100%; /* Passt sich der Containerbreite an */
+        height: auto; /* Beibehaltung des Verhältnisses */
+        object-fit: contain; /* Verhindert, dass das Bild beschnitten wird */
+    }
+
+    .about-content,
+    .black-section .about-content {
+        flex-direction: column; /* Inhalte untereinander anordnen */
+        gap: 20px; /* Abstand zwischen Bild und Text */
+    }
+
+    .about-text,
+    .black-section .about-text {
+        text-align: center; /* Zentriere den Text für mobile Geräte */
+    }
+}
+
+
+
+/* ===================================== */
+/* ========== Fonts ======= */
+/* ===================================== */
+
+/* NeutralSans-Medium für den allgemeinen Text */
+@font-face {
+    font-family: 'NeutralSansMedium'; /* Name der Schriftart */
+    src: url('assets/fonts/NeutralSans-Meidum.ttf') format('truetype'); /* Pfad zur TTF-Datei */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* GyrochromeVF für die Navbar-Links */
+@font-face {
+    font-family: 'Gyrochrome-VF'; /* Name der Schriftart */
+    src: url('assets/fonts/GyrochromeVF.ttf') format('truetype'); /* Pfad zur OTF-Datei */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Toast-Container innerhalb des Formulars */
+.toast {
+    position: relative; /* Position relativ zum Formular */
+    margin-top: 15px; /* Abstand zum Button */
+    padding: 10px 15px; /* Padding für den Toast */
+    background-color: #333; /* Hintergrundfarbe */
+    color: #fff; /* Textfarbe */
+    border-radius: 5px; /* Abgerundete Ecken */
+    font-size: 0.9rem; /* Kleinere Schriftgröße */
+    text-align: center; /* Zentrierter Text */
+    opacity: 0; /* Unsichtbar standardmäßig */
+    transform: translateY(-10px); /* Leichte Verschiebung nach oben */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animation */
+}
+
+/* Toast sichtbar machen */
+.toast.visible {
+    opacity: 1;
+    transform: translateY(0); /* Zurück zur ursprünglichen Position */
+}
+
+/* Erfolgs-Toast */
+.toast.success {
+    background-color: #4caf50; /* Grün für Erfolg */
+}
+
+/* Fehler-Toast */
+.toast.error {
+    background-color: #f44336; /* Rot für Fehler */
+}
+
+/* Toast ausblenden */
+.toast.hidden {
+    display: none;
+}
+
